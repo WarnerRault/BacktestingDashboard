@@ -72,7 +72,9 @@ export default function TopBar({ data }) {
     <div className="absolute flex items-center gap-4 top-0 left-0 bg-stone-950 w-full px-[12vw] p-2">
       <div className="flex flex-col">
         <div className="flex gap-2 items-center font-bold">
-          <span className="font-bold text-white">{data?.pair ?? "Loading..."}</span>
+          <span className="font-bold text-white">
+            {data?.pair ?? "Loading..."}
+          </span>
           <div className="border border-stone-500 h-min p-0.5 px-1 rounded-md text-[9px]">
             {data?.timeFrame ?? "X"}
           </div>
@@ -98,12 +100,25 @@ export default function TopBar({ data }) {
             Fee Cutoff: {formatPercent(data?.feeCutoff)} of R
           </div>
           <div className="border border-stone-500 h-min p-0.5 px-1 rounded-md text-[9px]">
-            {data?.startDate ?? "Loading..."} - {data?.endDate ?? "Loading..."}
+            {data?.startDate
+              ? new Date(data.startDate).toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })
+              : "Loading..."}{" "}
+            -{" "}
+            {data?.endDate
+              ? new Date(data.endDate).toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })
+              : "Loading..."}
           </div>
-          
         </div>
         <div className="flex items-center gap-1.5 text-[9px] text-stone-400 font-bold">
-          <div>{Math.trunc(data?.testTime,0) ?? "Loading..."} Seconds</div>
+          <div>{Math.trunc(data?.testTime, 0) ?? "Loading..."} Seconds</div>
           <div className="h-1 w-1 bg-stone-400 rounded-full"></div>
           <div>
             {data?.numberOfSystems?.toLocaleString() ?? "Loading..."} Systems
@@ -113,9 +128,7 @@ export default function TopBar({ data }) {
             {data?.numberOfTradesTotal?.toLocaleString() ?? "Loading..."} Trades
           </div>
           <div className="h-1 w-1 bg-stone-400 rounded-full"></div>
-          <div>
-            {data?.timeStamp ?? "Loading..."}
-          </div>
+          <div>{data?.timeStamp ?? "Loading..."}</div>
         </div>
       </div>
       <div className="ml-auto flex items-center gap-2">
@@ -203,7 +216,7 @@ export default function TopBar({ data }) {
               </div>
             </div>
           )}
-                </div>
+        </div>
       </div>
     </div>
   )
