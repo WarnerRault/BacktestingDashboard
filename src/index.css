@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-size: 14px;
+  font-family: "Geist", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.checkbox {
+  @apply h-4 w-4 rounded border ;
+}
+
+.card {
+  @apply flex flex-col gap-3 bg-stone-800 rounded-lg p-4 shadow-md;
+}
