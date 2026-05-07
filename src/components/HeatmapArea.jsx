@@ -19,8 +19,16 @@ export default function HeatmapArea({ data }) {
   return (
     <div className="grid grid-cols-[4fr_1fr] gap-4">
       <div className="card h-[70vh]">
-        <div className="flex font-bold ">
+        <div className="flex font-bold items-center gap-4">
           Expetancy Heatmap
+          <div className="flex gap-2 items-center text-stone-400 text-[9px]">
+            <div className="h-2 w-2 bg-red-500 rounded-sm"/>
+            Lowest Expentancy
+            <div className="h-2 w-2 bg-white rounded-sm"/>
+            0
+            <div className="h-2 w-2 bg-emerald-500 rounded-sm"/>
+            Higest Expentancy
+          </div>
           <div className="flex ml-auto text-stone-200 border border-stone-500 rounded-md text-[9px] overflow-hidden">
             <button
               className={`hover:bg-stone-700 px-3 border-r border-stone-500 ${heatmapMode === "Monthly" ? "bg-blue-700/40" : ""}`}
